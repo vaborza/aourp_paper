@@ -125,7 +125,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax = axs[1, 0]
     ax.set_xlim([datetime.date(2017, 6, 1), datetime.date(2022, 7, 1)])
     ax.xaxis.set_minor_locator(mdates.MonthLocator())
-    ax.plot(datetimes[100:], kld_us[100:], '-', linewidth=2, color='tab:blue', label='Coverage (lower better)')
+    ax.plot(datetimes[100:], kld_us[100:], '-', linewidth=2, color='tab:blue', label='Coverage (lower is more)')
     ax.legend()
     ax.set_ylabel('KLD(C||U)')
 
@@ -133,8 +133,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax.set_xlim([datetime.date(2017, 6, 1), datetime.date(2022, 7, 1)])
     ax.xaxis.set_minor_locator(mdates.MonthLocator())
     ax.axhline(y=75, color='#B0B0B0', label='75% Target', lw=1)
-    ax.plot(datetimes[100:], 100 * np.array(ur_proportions[100:]), '-', linewidth=2, color='tab:gray',
-            label='% Historically Underrepresented')
+    ax.plot(datetimes[100:], 100 * np.array(ur_proportions[100:]), '-', linewidth=2, color='tab:gray', label='% UBR')
     ax.legend(loc=4)
     ax.set_ylabel('%')
 
@@ -149,7 +148,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax.set_xlim([datetime.date(2017, 6, 1), datetime.date(2022, 7, 1)])
     ax.xaxis.set_minor_locator(mdates.MonthLocator())
     ax.axhline(y=100 * age_census[2], color='#CC6600', label='Census Age 65+', lw=1)
-    ax.plot(datetimes[100:], 100 * age_proportions[2, 100:], '-', linewidth=2, color='tab:brown', label='AoURP Age 65+')
+    ax.plot(datetimes[100:], 100 * age_proportions[2, 100:], '-', linewidth=2, color='tab:brown', label='$\it{All\;of\;Us}$ Age 65+')
     ax.legend(loc=4)
     ax.set_ylabel('%')
 
@@ -157,8 +156,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax.set_xlim([datetime.date(2017, 6, 1), datetime.date(2022, 7, 1)])
     ax.xaxis.set_minor_locator(mdates.MonthLocator())
     ax.axhline(y=100 * race_census[0], color='#FF9933', label='Census Race Asian', lw=1)
-    ax.plot(datetimes[100:], 100 * race_proportions[0, 100:], '-', linewidth=2, color='tab:orange',
-            label='AoURP Race Asian')
+    ax.plot(datetimes[100:], 100 * race_proportions[0, 100:], '-', linewidth=2, color='tab:orange', label='$\it{All\;of\;Us}$ Race Asian')
     ax.legend()
     ax.set_ylabel('%')
 
@@ -166,8 +164,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax.set_xlim([datetime.date(2017, 6, 1), datetime.date(2022, 7, 1)])
     ax.xaxis.set_minor_locator(mdates.MonthLocator())
     ax.axhline(y=100 * race_census[1], color='#00CC00', label='Census Race Black', lw=1)
-    ax.plot(datetimes[100:], 100 * race_proportions[1, 100:], '-', linewidth=2, color='tab:green',
-            label='AoURP Race Black')
+    ax.plot(datetimes[100:], 100 * race_proportions[1, 100:], '-', linewidth=2, color='tab:green', label='$\it{All\;of\;Us}$ Race Black')
     ax.legend()
     ax.set_ylabel('%')
 
@@ -175,8 +172,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax.set_xlim([datetime.date(2017, 6, 1), datetime.date(2022, 7, 1)])
     ax.xaxis.set_minor_locator(mdates.MonthLocator())
     ax.axhline(y=100 * race_census[2], color='#BF80FF', label='Census Race NH/PI', lw=1)
-    ax.plot(datetimes[100:], 100 * race_proportions[2, 100:], '-', linewidth=2, color='tab:purple',
-            label='AoURP Race NH/PI')
+    ax.plot(datetimes[100:], 100 * race_proportions[2, 100:], '-', linewidth=2, color='tab:purple', label='$\it{All\;of\;Us}$ Race NH/PI')
     ax.legend(loc=4)
     ax.set_ylabel('%')
 
@@ -184,8 +180,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax.set_xlim([datetime.date(2017, 6, 1), datetime.date(2022, 7, 1)])
     ax.xaxis.set_minor_locator(mdates.MonthLocator())
     ax.axhline(y=100 * race_census[3], color='#FFB3FF', label='Census Race Two or More', lw=1)
-    ax.plot(datetimes[100:], 100 * race_proportions[3, 100:], '-', linewidth=2, color='tab:pink',
-            label='AoURP Race Two or More')
+    ax.plot(datetimes[100:], 100 * race_proportions[3, 100:], '-', linewidth=2, color='tab:pink', label='$\it{All\;of\;Us}$ Race Two or More')
     ax.legend()
     ax.set_ylabel('%')
 
@@ -193,8 +188,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax.set_xlim([datetime.date(2017, 6, 1), datetime.date(2022, 7, 1)])
     ax.xaxis.set_minor_locator(mdates.MonthLocator())
     ax.axhline(y=100 * eth_census[0], color='#66FFFF', label='Census Ethnicity H/L', lw=1)
-    ax.plot(datetimes[100:], 100 * eth_proportions[0, 100:], '-', linewidth=2, color='tab:cyan',
-            label='AoURP Ethnicity H/L')
+    ax.plot(datetimes[100:], 100 * eth_proportions[0, 100:], '-', linewidth=2, color='tab:cyan', label='$\it{All\;of\;Us}$ Ethnicity H/L')
     ax.legend(loc=4)
     ax.set_ylabel('%')
 
@@ -302,7 +296,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax.plot(np.arange(len(census_gen_demos)) + 1,
             np.array(gen_demos_1) / np.array(gen_demos_1).sum(),
             'o', markersize=2.5, color='k',
-            label=f'AoURP Cohort')
+            label=r'$\it{All\;of\;Us}$ Cohort')
 
     ax.fill_between(np.arange(len(census_gen_demos)) + 0.5,
                     np.array(uniform_demos) / 60,
@@ -403,7 +397,7 @@ site_ratios = np.array(reordered_site_distributions).T / np.array(reordered_cens
 
 ### Figure 3a
 with matplotlib.rc_context({'font.family': 'sans', 'font.size': 7, 'figure.dpi': 300}):
-    fig, axs = plt.subplots(nrows=2, ncols=2, figsize=[6, 3], height_ratios=[3.5, 1], width_ratios=[10, 1])
+    fig, axs = plt.subplots(nrows=2, ncols=2, figsize=[6, 2.2], height_ratios=[3.5, 1], width_ratios=[10, 1])
     axs[0, 1].axis('off')
     axs[1, 1].axis('off')
 
@@ -478,7 +472,7 @@ site_ratios = np.array(reordered_site_distributions).T / np.array(reordered_cens
 
 ### Figure 3b
 with matplotlib.rc_context({'font.family': 'sans', 'font.size': 7, 'figure.dpi': 300}):
-    fig, axs = plt.subplots(nrows=2, ncols=2, figsize=[6, 4.6], height_ratios=[3.5, 1], width_ratios=[10, 1])
+    fig, axs = plt.subplots(nrows=2, ncols=2, figsize=[6, 5.5], height_ratios=[3.5, 1], width_ratios=[10, 1])
     axs[0, 1].axis('off')
     axs[1, 1].axis('off')
 
@@ -692,7 +686,7 @@ for i in range(21):
 #             pd.read_pickle(f'~/data/ehr_sites/aou_quarterly_cumu_cohorts_{4 * i}.pkl'))
 
 with open(
-        f'~/paper_results/ehr_site_{prior}_prior_{update_method}_update_{objective}_objective_{upper_bound_factor}_upper_bound_factor_004_0909_yearly.pickle',
+        f'~/paper_results/ehr_site_{prior}_prior_{update_method}_update_{objective}_objective_{upper_bound_factor}_upper_bound_factor_004_0909.pickle',
         'rb') as handle:
     results = pickle.load(handle)
 
@@ -700,18 +694,17 @@ results_df = pd.DataFrame(results)
 
 ### Process final cohort KLD_C, KLD_U, and underrepresented % for simulation and historic AoURP cohorts
 actual_kld_cs = np.array([entropy(cohort['DEMOGRAPHICS'].sum(axis=0), census_tot) for cohort in quarterly_cumu_cohorts])
-actual_kld_us = np.array(
-    [entropy(cohort['DEMOGRAPHICS'].sum(axis=0), np.ones_like(census_tot)) for cohort in quarterly_cumu_cohorts])
-kld_c_mean = np.array(list(results_df['kld_cs'])).mean(axis=0)
-kld_c_sem = np.array(list(results_df['kld_cs'])).std(axis=0) / np.sqrt(len(results_df))
-kld_u_mean = np.array(list(results_df['kld_us'])).mean(axis=0)
-kld_u_sem = np.array(list(results_df['kld_us'])).std(axis=0) / np.sqrt(len(results_df))
+actual_kld_us = np.array([entropy(cohort['DEMOGRAPHICS'].sum(axis=0), np.ones_like(census_tot)) for cohort in quarterly_cumu_cohorts])
+
+final_kld_cs = np.array(list(results_df['kld_cs']))[:,-1]
+final_kld_us = np.array(list(results_df['kld_us']))[:,-1]
+
+kld_c_mci = bayes_mvs(final_kld_cs, alpha=0.95)[0]
+kld_u_mci = bayes_mvs(final_kld_us, alpha=0.95)[0]
 
 print(f'AoURP: {actual_kld_cs[-1]:.4f}, {actual_kld_us[-1]:.4f}')
-print(
-    f'Sim KLD(C||P): {kld_c_mean[-1]:.4f} [{(kld_c_mean[-1] - 1.96 * kld_c_sem[-1]):.4f}, {(kld_c_mean[-1] + 1.96 * kld_c_sem[-1]):.4f}]')
-print(
-    f'Sim KLD(C||U): {kld_u_mean[-1]:.4f} [{(kld_u_mean[-1] - 1.96 * kld_u_sem[-1]):.4f},{(kld_u_mean[-1] + 1.96 * kld_u_sem[-1]):.4f}]')
+print(f'Sim KLD(C||P): {kld_c_mci[0]:.4f} [{kld_c_mci[1][0]:.4f}, {kld_c_mci[1][1]:.4f}]')
+print(f'Sim KLD(C||U): {kld_u_mci[0]:.4f} [{kld_u_mci[1][0]:.4f}, {kld_u_mci[1][1]:.4f}]')
 
 stacked_sim_cohorts = np.vstack(results_df['final_cohort'])
 unwrapped_stacked_sim_cohorts = stacked_sim_cohorts.reshape([40, 3, 2, 5, 2])
@@ -744,19 +737,36 @@ aourp_ur_re_prop = (aourp_ur_by_race + aourp_ur_by_eth) / aourp_total
 ur_prop = np.array(ur_proportions)
 ur_re_prop = np.array(ur_by_race_eth_proportions)
 
+ur_prop_mci = bayes_mvs(ur_prop, alpha=0.95)[0]
+ur_re_prop_mci = bayes_mvs(ur_re_prop, alpha=0.95)[0]
+
 print('AoURP values:')
 print(f'Underrepresented: {aourp_ur_prop:.4f}, just by race/ethnicity {aourp_ur_re_prop:.4f}')
 print('Sim values:')
-print(
-    f'Underrepresented: {ur_prop.mean():.4f} ([{ur_prop.mean() - ur_prop.std() * 1.96 / np.sqrt(40):.4f}, {ur_prop.mean() + ur_prop.std() * 1.96 / np.sqrt(40):.4f}]), just by race/ethnicity {ur_re_prop.mean():.4f} ({ur_re_prop.mean() - ur_re_prop.std() * 1.96 / np.sqrt(40):.4f}, {ur_re_prop.mean() + ur_re_prop.std() * 1.96 / np.sqrt(40):.4f})')
+print(f'Underrepresented: {ur_prop_mci[0]:.4f} [{ur_prop_mci[1][0]:.4f}, {ur_prop_mci[1][1]:.4f}], just by race/ethnicity {ur_re_prop_mci[0]:.4f} [{ur_re_prop_mci[1][0]:.4f}, {ur_re_prop_mci[1][1]:.4f}]')
 
 ### Show trends in representativeness and coverage over time for simulation compared to historic
-# Calculate the means and SEM across experiments
-kld_c_mean = np.array(list(results_df['kld_cs'])).mean(axis=0)
-kld_c_sem = np.array(list(results_df['kld_cs'])).std(axis=0) / np.sqrt(len(results_df))
+# Bayesian 95% CIs
+kld_cs = np.array(list(results_df['kld_cs']))
+kld_us = np.array(list(results_df['kld_us']))
 
-kld_u_mean = np.array(list(results_df['kld_us'])).mean(axis=0)
-kld_u_sem = np.array(list(results_df['kld_us'])).std(axis=0) / np.sqrt(len(results_df))
+kld_c_means = []
+kld_c_lowers = []
+kld_c_uppers = []
+kld_u_means = []
+kld_u_lowers = []
+kld_u_uppers = []
+
+for i in range(21):
+    kld_c_mci = bayes_mvs(kld_cs[:, i], alpha=0.95)[0]
+    kld_u_mci = bayes_mvs(kld_us[:, i], alpha=0.95)[0]
+    kld_c_means.append(kld_c_mci[0])
+    kld_c_lowers.append(kld_c_mci[1][0])
+    kld_c_uppers.append(kld_c_mci[1][1])
+    kld_u_means.append(kld_u_mci[0])
+    kld_u_lowers.append(kld_u_mci[1][0])
+    kld_u_uppers.append(kld_u_mci[1][1])
+
 
 ### Figure 6
 with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi': 300}):
@@ -769,17 +779,15 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
         ax.set_xlabel('Iteration (Quarterly)')
 
     ax = axs[0]
-    ax.plot(np.arange(21) + 1, kld_c_mean, color='tab:red', lw=1.6, label='Simulated KLD(C||P)')
+    ax.plot(np.arange(21) + 1, kld_c_means, color='tab:red', lw=1.6, label='Simulated KLD(C||P)')
     ax.plot(np.arange(21) + 1, actual_kld_cs, '--', lw=1.6, color='#A01030', label='Historic KLD(C||P)')
-    ax.fill_between(np.arange(21) + 1, kld_c_mean - 1.96 * kld_c_sem, kld_c_mean + 1.96 * kld_c_sem, color='tab:red',
-                    alpha=0.3, lw=0)
+    ax.fill_between(np.arange(21) + 1, kld_c_lowers, kld_c_uppers, color='tab:red', alpha=0.3, lw=0)
     ax.set_ylabel('Representativeness [KLD(C||P)]')
     ax.legend(loc=1)
 
     ax2 = axs[1]
-    ax2.plot(np.arange(21) + 1, kld_u_mean, color='tab:blue', lw=1.6, label='Simulated KLD(C||U)')
-    ax2.fill_between(np.arange(21) + 1, kld_u_mean - 1.96 * kld_u_sem, kld_u_mean + 1.96 * kld_u_sem, color='tab:blue',
-                     alpha=0.3, lw=0)
+    ax2.plot(np.arange(21) + 1, kld_u_means, color='tab:blue', lw=1.6, label='Simulated KLD(C||U)')
+    ax2.fill_between(np.arange(21) + 1, kld_u_lowers, kld_u_uppers, color='tab:blue', alpha=0.3, lw=0)
     ax2.plot(np.arange(21) + 1, actual_kld_us, '--', lw=1.6, color='#103080', label='Historic KLD(C||U)')
     ax2.set_ylabel('Coverage [KLD(C||U)]')
     ax2.legend(loc=1)
@@ -804,9 +812,7 @@ print(((sim_dist_means < census_distribution.reshape(-1)) & (sim_dist_means > un
 
 site_specific_demos_1 = (np.array(quarterly_cumu_cohorts[-1]['DEMOGRAPHICS'].sum()) / np.array(
     quarterly_cumu_cohorts[-1]['DEMOGRAPHICS'].sum()).sum()).reshape([3, 2, 5, 2])
-site_specific_demos_2 = (np.vstack(results_df['final_cohort']) / np.vstack(results_df['final_cohort']).sum(axis=1,
-                                                                                                           keepdims=True)).reshape(
-    [40, 3, 2, 5, 2])
+site_specific_demos_2 = (np.vstack(results_df['final_cohort']) / np.vstack(results_df['final_cohort']).sum(axis=1, keepdims=True)).reshape([40, 3, 2, 5, 2])
 
 race_labels = ['Asian', 'Black', 'NH/PI', 'T o M', 'White']
 eth_labels = ['H/L', 'NH/L']
@@ -864,7 +870,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 8, 'figure.dpi':
     ax.plot(np.arange(len(census_gen_demos)) + 1,
             gen_demos_1,
             'o', markersize=2, color='k',
-            label=f'AoURP Actual Cohort',
+            label='$\it{All\;of\;Us}$ Actual Cohort',
             zorder=100)
 
     ax.plot(1, 0.1, color='tab:green', alpha=0, label='Simulated Cohorts')
@@ -953,7 +959,7 @@ with matplotlib.rc_context({'font.family': 'sans', 'font.size': 9, 'figure.dpi':
     ax.set_xticks(ticks=np.arange(50)+1, labels=ehr_site_recruits.index.values[sorted_values], minor=False)
     ax.set_xticks(ticks=np.arange(51)+0.5, labels=None, minor=True)
     ax.tick_params(axis='x', labelrotation=90)
-    ax.plot(np.arange(50)+1, np.array(actual_demographics['SITE_SUM'])[sorted_values], 'ro', markersize=4, label='AoURP Recruitments')
+    ax.plot(np.arange(50)+1, np.array(actual_demographics['SITE_SUM'])[sorted_values], 'ro', markersize=4, label='$\it{All\;of\;Us}$ Recruitments')
     ax.plot(1, 1000, color='tab:blue', alpha=0, label='Simulated Recruitments')
     ax.set_yscale('log')
     ax.set_xlim(0.5, 50.5)
